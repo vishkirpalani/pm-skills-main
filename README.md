@@ -1,10 +1,34 @@
-# PM Skills Marketplace: 65 Agentic Skills and 36 Commands Across 8 Plugins for Claude Code, Cowork, Gemini, Cursor & More
+# PM Skills Marketplace: Structured AI Workflows for Better Product Decisions
 
-> The ultimate collection of 100+ artifacts for PMs working with AI. Built for Claude Code and Cowork, with skills compatible across AI coding assistants.
-
-If this project helps you, simply ⭐ the repo.
+> A structured operating system for product managers using AI.  
+> 65 domain-specific skills and 36 chained workflows across 8 PM plugins — from discovery to strategy, execution, launch, and growth.
 
 ![Plugin overview](plugins-overview.webp)
+
+## Start Here
+
+New idea? → `/discover`  
+Need strategic clarity? → `/strategy`  
+Writing a PRD? → `/write-prd`  
+Planning a launch? → `/plan-launch`  
+Defining metrics? → `/north-star`
+
+If this project helps you, ⭐ the repo.
+
+## Why PM Skills Marketplace?
+
+Most AI tools make PMs faster at writing.
+
+PM Skills Marketplace makes you better at deciding.
+
+- Discovery before solutioning  
+- Assumption mapping before roadmap commitments  
+- Prioritization tied to impact and risk  
+- North Star clarity before metric theater  
+- Pre-mortems before launch disasters  
+
+This isn’t about generating text.
+It’s about product judgment.
 
 ## Table of Contents
 
