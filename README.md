@@ -1,3 +1,7 @@
+![GitHub stars](https://img.shields.io/github/stars/phuryn/pm-skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](https://github.com/phuryn/pm-skills/blob/main/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/phuryn/pm-skills/blob/main/CONTRIBUTING.md)
+
 # PM Skills Marketplace: The AI Operating System for Better Product Decisions
 
 > 65 PM skills and 36 chained workflows across 8 plugins. Claude Code, Cowork, and more. From discovery to strategy, execution, launch, and growth. 
@@ -77,12 +81,19 @@ The `skills/*/SKILL.md` files follow the universal skill format and work with an
 | Tool | How to use | What works |
 |------|-----------|------------|
 | **Gemini CLI** | Copy skill folders to `.gemini/skills/` | Skills only |
+| **OpenCode** | Copy skill folders to `.opencode/skills/` | Skills only |
 | **Cursor** | Copy skill folders to `.cursor/skills/` | Skills only |
 | **Codex CLI** | Copy skill folders to `.codex/skills/` | Skills only |
 | **Kiro** | Copy skill folders to `.kiro/skills/` | Skills only |
 
 ```bash
-# Example: copy all skills for Gemini CLI
+# Example: copy all skills for OpenCode (project-level)
+for plugin in pm-*/; do
+  mkdir -p .opencode/skills/
+  cp -r "$plugin/skills/"* .opencode/skills/ 2>/dev/null
+done
+
+# Example: copy all skills for Gemini CLI (global)
 for plugin in pm-*/; do
   cp -r "$plugin/skills/"* ~/.gemini/skills/ 2>/dev/null
 done
@@ -92,9 +103,8 @@ done
 
 ## Available Plugins
 
-### 1. pm-product-discovery
-
-Continuous product discovery: ideation, experiments, assumption testing, feature prioritization, Opportunity Solution Trees, and customer interviews.
+<details>
+<summary><strong>1. pm-product-discovery</strong> — Ideation, experiments, assumption testing, OSTs, interviews (13 skills, 5 commands)</summary>
 
 **Skills (13):**
 
@@ -132,7 +142,10 @@ Commands:
 - `/brainstorm experiments existing — We need to reduce churn in our onboarding flow`
 - `/interview prep — We're interviewing enterprise buyers about their procurement workflow`
 
-### 2. pm-product-strategy
+</details>
+
+<details>
+<summary><strong>2. pm-product-strategy</strong> — Vision, business models, pricing, competitive landscape (12 skills, 5 commands)</summary>
 
 Product strategy, vision, business models, pricing, and macro environment analysis. Covers the full strategic toolkit from vision crafting through competitive landscape scanning.
 
@@ -171,7 +184,10 @@ Commands:
 - `/business-model startup — AI writing tool for non-native English speakers`
 - `/value-proposition SaaS onboarding tool for enterprise customers`
 
-### 3. pm-execution
+</details>
+
+<details>
+<summary><strong>3. pm-execution</strong> — PRDs, OKRs, roadmaps, sprints, retros, release notes, stakeholder management (15 skills, 10 commands)</summary>
 
 Day-to-day product management: PRDs, OKRs, roadmaps, sprints, retrospectives, release notes, pre-mortems, stakeholder management, user stories, and prioritization frameworks.
 
@@ -218,7 +234,10 @@ Commands:
 - `/sprint retro — Here are the notes from our last sprint`
 - `/write-stories job — Break down the "team dashboard" feature into job stories`
 
-### 4. pm-market-research
+</details>
+
+<details>
+<summary><strong>4. pm-market-research</strong> — Personas, segmentation, journey maps, market sizing, competitor analysis (7 skills, 3 commands)</summary>
 
 User research and competitive analysis: personas, segmentation, journey maps, market sizing, competitor analysis, and feedback analysis.
 
@@ -250,7 +269,10 @@ Commands:
 - `/competitive-analysis Figma competitors in the design tool space`
 - `/analyze-feedback Here's 200 NPS responses from Q4 [attach file]`
 
-### 5. pm-data-analytics
+</details>
+
+<details>
+<summary><strong>5. pm-data-analytics</strong> — SQL generation, cohort analysis, A/B test analysis (3 skills, 3 commands)</summary>
 
 Data analytics for PMs: SQL query generation, cohort analysis, and A/B test analysis.
 
@@ -277,7 +299,10 @@ Commands:
 - `/analyze-test Here are the results from our checkout flow A/B test [attach CSV]`
 - `/analyze-cohorts Weekly retention for users who signed up in January vs February`
 
-### 6. pm-go-to-market
+</details>
+
+<details>
+<summary><strong>6. pm-go-to-market</strong> — Beachhead segments, ICPs, messaging, growth loops, GTM motions, battlecards (6 skills, 3 commands)</summary>
 
 Go-to-market strategy: beachhead segments, ideal customer profiles, messaging, growth loops, GTM motions, and competitive battlecards.
 
@@ -308,7 +333,10 @@ Commands:
 - `/battlecard Our CRM vs Salesforce for the SMB market`
 - `/growth-strategy Two-sided marketplace for connecting freelancers with startups`
 
-### 7. pm-marketing-growth
+</details>
+
+<details>
+<summary><strong>7. pm-marketing-growth</strong> — Marketing ideas, positioning, value props, naming, North Star metrics (5 skills, 2 commands)</summary>
 
 Product marketing and growth: marketing ideas, positioning, value proposition statements, product naming, and North Star metrics.
 
@@ -336,7 +364,10 @@ Commands:
 - `/market-product B2B analytics dashboard for e-commerce managers`
 - `/north-star Two-sided marketplace connecting freelancers with clients`
 
-### 8. pm-toolkit
+</details>
+
+<details>
+<summary><strong>8. pm-toolkit</strong> — Resume review, legal documents, proofreading (4 skills, 5 commands)</summary>
 
 PM utilities beyond core product work: resume review, legal documents, and proofreading.
 
@@ -366,6 +397,8 @@ Commands:
 - `/tailor-resume [attach resume + paste job description]`
 - `/proofread Here's the draft of our Q1 investor update`
 
+</details>
+
 ---
 
 ## About
@@ -389,6 +422,10 @@ Selected skills based on the work of:
 
 Curated by Paweł Huryn from [The Product Compass Newsletter](https://www.productcompass.pm).
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Known Issue on Windows
 
 If your Cowork is unstable and can't start a VM ([claude-code/issues/27010](https://github.com/anthropics/claude-code/issues/27010)), try:
@@ -407,6 +444,9 @@ Register-ScheduledTask -TaskName "CoworkVMServiceMonitor" `
   -RunLevel Highest `
   -User "SYSTEM"
 ```
+
+It solves 90% of the issues on Windows.
+The remaining 10%: open services.msc > start "Claude" service manually
 
 ## License
 
